@@ -21,8 +21,8 @@ public class Pila {
     String buscador;
 
     public Pila() {
-        inicio=null;
-        fin=null;
+        inicio = null;
+        fin = null;
         cima = null;
         tamaño = 0;
     }
@@ -38,34 +38,38 @@ public class Pila {
         nuevo.siguiente = cima;//para que el último elemento sea el que esté en la cima de la pila
         cima = nuevo;//el nuevo elemento o sea el último es nuestra cima
         tamaño++;//al ingresar un dato aumenta en uno el tamaño
-        if(fin==null){
-            fin=cima;
+        if (fin == null) {
+            fin = cima;
         }
     }
-    public void pushinicio(String elemento, String elemento1){
-        inicio=new NodoPila(elemento, elemento1,inicio);
-        if(fin==null){
-            fin=inicio;
+    //prueba
+    public void pushinicio(String elemento, String elemento1) {
+        inicio = new NodoPila(elemento, elemento1, inicio);
+        if (fin == null) {
+            fin = inicio;
         }
     }
-    public void mostrarrecorrido(){
-        NodoPila recorrer= inicio;
-        while(recorrer!=null){
+    //prueba
+    public void mostrarrecorrido() {
+        NodoPila recorrer = inicio;
+        while (recorrer != null) {
             System.out.print("[" + recorrer.dato + "," + recorrer.dato1 + "]=>");
-            recorrer=recorrer.siguiente;
+            recorrer = recorrer.siguiente;
         }
     }
-    public String popinicio(){
-        String elemento=inicio.dato;
-        String elemento1=inicio.dato1;
-        if(inicio==fin){
-            inicio=null;
-            fin=null;
-        }else{
-            inicio=inicio.siguiente;
+    //prueba
+    public String popinicio() {
+        String elemento = inicio.dato;
+        String elemento1 = inicio.dato1;
+        if (inicio == fin) {
+            inicio = null;
+            fin = null;
+        } else {
+            inicio = inicio.siguiente;
         }
         return elemento;
     }
+
     //Sacar un elemento de la pila
     public void pop() {
         String aux = cima.dato;
@@ -99,28 +103,29 @@ public class Pila {
     public void mostrarfondo() {
         NodoPila primero = cima;//contiene dato de la pila
         if (tamaño == 1) {//busca el tamaño de la pila para mostrar ese dato en la posición
-            System.out.println("{"+primero.dato + "," + primero.dato1+"]");//muestra el dato del fondo
-        }else{
-           System.out.println("{"+fin.dato+","+fin.dato1+"]");//muestra el dato del fondo  
+            System.out.println("{" + primero.dato + "," + primero.dato1 + "]");//muestra el dato del fondo
+        } else {
+            System.out.println("{" + fin.dato + "," + fin.dato1 + "]");//muestra el dato del fondo  
         }
-       
+
     }
-    public boolean buscarelemento(String elemento){
-        NodoPila temporal= inicio;
+
+    public boolean buscarelemento(String elemento) {
+        NodoPila temporal = inicio;
         System.out.println(temporal);
 //        while (temporal != null && temporal.dato!=elemento ) {
 //            temporal=temporal.siguiente1;
 //        }
-        
-        return temporal!=null;
+
+        return temporal != null;
     }
-    
+
     public boolean buscarel(String elemento) {
         NodoPila buscar = cima;
         while (buscar != null && buscar.dato != elemento) {
             buscar = buscar.siguiente;
         }
-        
+
         return buscar == null;
     }
 //        NodoPila buscar = cima;
@@ -135,7 +140,7 @@ public class Pila {
 //                
 //            
 //        }
-        
+
 //        return buscar!=null;
 //        NodoPila recolectar = cima;//contiene dato de la pila
 //        while (recolectar != null) {
@@ -176,17 +181,17 @@ public class Pila {
 //            System.out.println("PILA VACÍA");
 //        }
 //    }
-
     public void modificarel(String elemento, String i, String u) {
         NodoPila modificarse = cima;
         while (modificarse != null) {
             if (modificarse.dato != elemento) {
                 modificarse.dato = i;
                 modificarse.dato1 = u;
-                
+
                 System.out.println("[" + i + "," + u + "]");
-                modificarse = modificarse.siguiente;
+
             }
+            modificarse = modificarse.siguiente;
         }
     }
 }

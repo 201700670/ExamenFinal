@@ -10,18 +10,20 @@ package examenfinal;
  * @author Andrea Palomo
  */
 public class NodoPila {
+
     String dato;
     String dato1;
     NodoPila siguiente, siguiente1;
 
     public NodoPila(String contenido, String nombre) {
         dato = contenido;
-        dato1=nombre;
-        siguiente=null;
+        dato1 = nombre;
+        siguiente = null;
     }
-     public NodoPila(String contenido, String nombre, NodoPila inicio) {
+
+    public NodoPila(String contenido, String nombre, NodoPila inicio) {
         dato = contenido;
-        dato1=nombre;
-        siguiente1=inicio;
-     }
+        dato1 = nombre;
+        siguiente1 = inicio;
+    }
 }

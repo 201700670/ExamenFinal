@@ -22,11 +22,11 @@ public class ExamenFinal {
         Scanner ingreso = new Scanner(System.in);
         Scanner buscar = new Scanner(System.in);
         int opcion = 0;
-        String  objetoid, objetous,idusu,obid,obus;
+        String objetoid, objetous, idusu, obid, obus;
         Pila pilaenlazada = new Pila();
         do {
             try {
-                
+
                 // Este es un menú de opciones que se mostrará al usuario
                 System.out.println();
                 System.out.println("MENÚ DE OPCIONES");
@@ -46,16 +46,16 @@ public class ExamenFinal {
                         System.out.print("Ingrese id del usuario: ");
                         objetoid = ingreso.next();
                         System.out.print("Ingrese nombre de usuario: ");
-                        objetous=ingreso.next();
+                        objetous = ingreso.next();
                         pilaenlazada.push(objetoid, objetous);
                         pilaenlazada.pushinicio(objetoid, objetous);
                         break;
                     case 2:
                         if (!pilaenlazada.Vacia()) {
-                            
+
                             System.out.print("El elemento obtenido a sacar es: ");
                             pilaenlazada.pop();
-                            
+
                         } else {
                             System.out.println("LA PILA ESTÁ VACÍA");
                         }
@@ -63,54 +63,55 @@ public class ExamenFinal {
                     case 3:
                         if (!pilaenlazada.Vacia()) {
                             pilaenlazada.mostrar();
-//                            pilaenlazada.mostrarrecorrido();
-                        }else {
+                        } else {
                             System.out.println("LA PILA ESTÁ VACÍA");
                         }
                         break;
                     case 4:
-                        System.out.println("El tamaño de la pila es: "+ pilaenlazada.Pilatamaño());
+                        System.out.println("El tamaño de la pila es: " + pilaenlazada.Pilatamaño());
                         break;
                     case 5:
                         if (!pilaenlazada.Vacia()) {
-                        System.out.print("El el usuario del fondo de la pila es: ");
-                        pilaenlazada.mostrarfondo();
-                        
-                        }else {
+                            System.out.print("El el usuario del fondo de la pila es: ");
+                            pilaenlazada.mostrarfondo();
+
+                        } else {
                             System.out.println("LA PILA ESTÁ VACÍA");
                         }
                         break;
                     case 6:
-                        
-                        
-                        System.out.print("Ingrese el id del usuario: ");
-                        idusu=buscar.next();
+                        if (!pilaenlazada.Vacia()) {
+
+                            System.out.print("Ingrese el id del usuario: ");
+                            idusu = buscar.next();
 //                        pilaenlazada.buscarelemento(idusu);
 //                        if(pilaenlazada.buscarelemento(idusu)==false){
 //                            System.out.println("El usuario: "+idusu+"está en la lista");
 //                        }else{
 //                            System.out.println("No está en la lista");
 //                        }
-                        
-                        if(pilaenlazada.buscarel(idusu)){
-                            System.out.println("SE ENCUENTRA EN LA LISTA");
-                            System.out.print("Ingrese el id a modificar del usuario:");
-                            obid=buscar.next();
-                            System.out.print("Ingrese el nombre a modificar del usuario:");
-                            obus=buscar.next();
-                            pilaenlazada.modificarel(idusu,obid, obus);
-                            
-                        }else{
-                            System.out.println("NO SE ENCUENTRA EN LA LISTA");
-                            System.out.println(pilaenlazada.buscarel(idusu));
+
+                            if (pilaenlazada.buscarel(idusu)) {
+                                System.out.println("SE ENCUENTRA EN LA LISTA");
+                                System.out.print("Ingrese el id a modificar del usuario:");
+                                obid = buscar.next();
+                                System.out.print("Ingrese el nombre a modificar del usuario:");
+                                obus = buscar.next();
+                                pilaenlazada.modificarel(idusu, obid, obus);
+
+                            } else {
+                                System.out.println("NO SE ENCUENTRA EN LA LISTA");
+                                System.out.println(pilaenlazada.buscarel(idusu));
+                            }
+                        } else {
+                            System.out.println("LA PILA ESTÁ VACÍA");
                         }
-                        
                         break;
                     case 7:
                         if (!pilaenlazada.Vacia()) {
                             System.out.println("El usuario de la cima es: ");
                             pilaenlazada.cima();
-                        }else {
+                        } else {
                             System.out.println("LA PILA ESTÁ VACÍA");
                         }
                         break;
