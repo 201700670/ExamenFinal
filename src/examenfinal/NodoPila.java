@@ -12,12 +12,16 @@ package examenfinal;
 public class NodoPila {
     String dato;
     String dato1;
-    NodoPila siguiente;
+    NodoPila siguiente, siguiente1;
 
     public NodoPila(String contenido, String nombre) {
         dato = contenido;
         dato1=nombre;
         siguiente=null;
     }
-    
+     public NodoPila(String contenido, String nombre, NodoPila inicio) {
+        dato = contenido;
+        dato1=nombre;
+        siguiente1=inicio;
+     }
 }

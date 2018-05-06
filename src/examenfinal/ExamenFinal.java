@@ -48,11 +48,14 @@ public class ExamenFinal {
                         System.out.print("Ingrese nombre de usuario: ");
                         objetous=ingreso.next();
                         pilaenlazada.push(objetoid, objetous);
+                        pilaenlazada.pushinicio(objetoid, objetous);
                         break;
                     case 2:
                         if (!pilaenlazada.Vacia()) {
+                            
                             System.out.print("El elemento obtenido a sacar es: ");
                             pilaenlazada.pop();
+                            
                         } else {
                             System.out.println("LA PILA ESTÁ VACÍA");
                         }
@@ -60,6 +63,7 @@ public class ExamenFinal {
                     case 3:
                         if (!pilaenlazada.Vacia()) {
                             pilaenlazada.mostrar();
+//                            pilaenlazada.mostrarrecorrido();
                         }else {
                             System.out.println("LA PILA ESTÁ VACÍA");
                         }
@@ -71,6 +75,7 @@ public class ExamenFinal {
                         if (!pilaenlazada.Vacia()) {
                         System.out.print("El el usuario del fondo de la pila es: ");
                         pilaenlazada.mostrarfondo();
+                        
                         }else {
                             System.out.println("LA PILA ESTÁ VACÍA");
                         }
@@ -80,15 +85,24 @@ public class ExamenFinal {
                         
                         System.out.print("Ingrese el id del usuario: ");
                         idusu=buscar.next();
-                        if(pilaenlazada.buscarel(idusu)==true){
+//                        pilaenlazada.buscarelemento(idusu);
+//                        if(pilaenlazada.buscarelemento(idusu)==false){
+//                            System.out.println("El usuario: "+idusu+"está en la lista");
+//                        }else{
+//                            System.out.println("No está en la lista");
+//                        }
+                        
+                        if(pilaenlazada.buscarel(idusu)){
                             System.out.println("SE ENCUENTRA EN LA LISTA");
                             System.out.print("Ingrese el id a modificar del usuario:");
                             obid=buscar.next();
                             System.out.print("Ingrese el nombre a modificar del usuario:");
                             obus=buscar.next();
-                            pilaenlazada.modificarel(obid, obus);
+                            pilaenlazada.modificarel(idusu,obid, obus);
+                            
                         }else{
                             System.out.println("NO SE ENCUENTRA EN LA LISTA");
+                            System.out.println(pilaenlazada.buscarel(idusu));
                         }
                         
                         break;
@@ -105,6 +119,7 @@ public class ExamenFinal {
                         System.exit(0); //salir del programa
                         break;
                     default:
+                        System.exit(0);
                         break;
                 }
             } catch (NumberFormatException n) {
